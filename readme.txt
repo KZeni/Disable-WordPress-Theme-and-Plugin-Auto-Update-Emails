@@ -1,17 +1,18 @@
-=== Disable WordPress Theme and Plugin Auto-Update Emails ===
+=== Disable Theme and Plugin Auto-Update Emails ===
 Contributors: KZeni
 Donate link: https://www.paypal.me/KZeni
+License: GPLv3
 Tags: plugin update, theme update, notifications, email, updates, disable
 Stable tag: 1.0
 Requires at least: 5.5
 Tested up to: 5.5
 Requires PHP: 5.4
 
-Disables the default notification email sent by WordPress for an automatic theme and/or plugin update. Simply activate the plugin to disable these notification emails.
+Disables the default notification email sent by a site after an automatic theme and/or plugin update. Simply activate the plugin to disable these notification emails.
 
 == Description ==
 
-Disables the default notification email sent by WordPress for an automatic theme and/or plugin update. Simply activate the plugin to disable these notification emails.
+Disables the default notification email sent by a site after an automatic theme and/or plugin update. Simply activate the plugin to disable these notification emails.
 
 Check things out on GitHub at [https://github.com/KZeni/Disable-WordPress-Theme-and-Plugin-Auto-Update-Emails](https://github.com/KZeni/Disable-WordPress-Theme-and-Plugin-Auto-Update-Emails)
 
