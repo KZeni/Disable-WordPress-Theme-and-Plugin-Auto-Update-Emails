@@ -3,7 +3,7 @@ Contributors: KZeni
 Donate link: https://www.paypal.me/KZeni
 License: GPLv3
 Tags: plugin update, theme update, notifications, email, updates, disable
-Stable tag: 1.0
+Stable tag: 1.0.1
 Requires at least: 5.5
 Tested up to: 5.5
 Requires PHP: 5.4
@@ -26,6 +26,14 @@ No. This is a simple & lightweight plugin that simply uses the official filters 
 
 == Changelog ==
 
+= 1.0.1 =
+
+Released August 14th, 2020
+
+* Implemented all necessary assets and pushed to WP.org plugin repository.
+
 = 1.0 =
+
+Released August 12th, 2020
 
 * Initial release.
