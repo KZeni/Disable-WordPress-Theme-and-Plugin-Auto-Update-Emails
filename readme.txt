@@ -5,7 +5,7 @@ License: GPLv3
 Tags: plugin update, theme update, notifications, email, updates, disable
 Stable tag: 1.0.4
 Requires at least: 5.5
-Tested up to: 5.7
+Tested up to: 5.8
 Requires PHP: 5.4
 
 Disables the default notification email sent by a site after an automatic theme and/or plugin update. Simply activate the plugin to disable these email notifications.
