@@ -6,7 +6,7 @@
  * Author: KZeni
  * Author URI: https://kzeni.com
  * License: GPLv3
- * Version: 1.0.3
+ * Version: 1.0.4
  * Requires at least: 5.5
  * Tested up to: 5.7
  */
