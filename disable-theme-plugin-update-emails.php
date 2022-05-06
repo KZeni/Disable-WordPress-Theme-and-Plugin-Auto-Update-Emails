@@ -6,9 +6,9 @@
  * Author: KZeni
  * Author URI: https://kzeni.com
  * License: GPLv3
- * Version: 1.0.5
+ * Version: 1.0.6
  * Requires at least: 5.5
- * Tested up to: 5.9
+ * Tested up to: 6.0
  */
 
 // Per https://make.wordpress.org/core/2020/07/30/controlling-plugin-and-theme-auto-update-email-notifications-and-site-health-infos-in-wp-5-5/
