@@ -6,10 +6,12 @@
  * Author: KZeni
  * Author URI: https://kzeni.com
  * License: GPLv3
- * Version: 1.1
+ * Version: 2.0
  * Requires at least: 5.5
- * Tested up to: 6.0.1
+ * Tested up to: 6.0.2
  */
+
+define('KZENI_DISABLE_THEME_PLUGIN_UPDATE_EMAILS_NAME', plugin_basename(__FILE__));
 
 // Per https://make.wordpress.org/core/2020/07/30/controlling-plugin-and-theme-auto-update-email-notifications-and-site-health-infos-in-wp-5-5/
 // Also see https://gist.github.com/afragen/e2f40ed2e71e590a127e8adc1db05948 where it adds update failure detection
@@ -66,7 +68,7 @@ function kzeni_disable_theme_plugin_update_emails_general_settings_section()
 
 function kzeni_disable_theme_plugin_update_emails_options_callback()
 { // Section Callback
-	//echo '<p>' . __('Successful updates already won\'t send emails simply due to the <strong>Disable Theme and Plugin Auto-Update Emails</strong> plugin being enabled.', 'kzeni_disable_theme_plugin_update_emails') . '</p>';
+	echo '<a id="disable-theme-plugin-update-emails"></a>';
 }
 
 function kzeni_disable_theme_plugin_update_emails_field_callback($args)
@@ -78,3 +80,21 @@ function kzeni_disable_theme_plugin_update_emails_field_callback($args)
 	echo __('Yes, disable all.', 'kzeni_disable_theme_plugin_update_emails') . '</label>';
 	echo '<p class="description">' . __('Successful updates already won\'t send emails simply due to the <strong>Disable Theme and Plugin Auto-Update Emails</strong> plugin being enabled.', 'kzeni_disable_theme_plugin_update_emails') . '</p>';
 }
+
+function kzeni_disable_theme_plugin_update_emails_plugin_extra_links($links, $plugin_name)
+{
+	if ($plugin_name != KZENI_DISABLE_THEME_PLUGIN_UPDATE_EMAILS_NAME) {
+		return $links;
+	}
+	$links[] = '<a href="https://github.com/KZeni/Disable-WordPress-Theme-and-Plugin-Auto-Update-Emails" target="_blank">' . __('GitHub', 'kzeni_disable_theme_plugin_update_emails') . '</a>';
+	$links[] = '<a href="https://wordpress.org/support/plugin/disable-theme-and-plugin-auto-update-emails/" target="_blank">' . __('Support', 'kzeni_disable_theme_plugin_update_emails') . '</a>';
+	return $links;
+}
+add_filter('plugin_row_meta', 'kzeni_disable_theme_plugin_update_emails_plugin_extra_links', 10, 2);
+
+function kzeni_disable_theme_plugin_update_emails_settings_plugin_links($actions)
+{
+	$actions = array_merge(array('settings' => '<a href="' . admin_url('options-general.php#disable-theme-plugin-update-emails') . '">' . __('Settings', 'kzeni_disable_theme_plugin_update_emails') . '</a>'), $actions);
+	return $actions;
+}
+add_action('plugin_action_links_' . KZENI_DISABLE_THEME_PLUGIN_UPDATE_EMAILS_NAME, 'kzeni_disable_theme_plugin_update_emails_settings_plugin_links');
