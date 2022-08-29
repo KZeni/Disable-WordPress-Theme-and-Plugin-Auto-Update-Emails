@@ -34,6 +34,10 @@ By default, notifications about failed updates will still be delivered, but ther
 
 Try out [Disable WordPress Core Update Email](https://wordpress.org/plugins/disable-core-update-email/) (or similar) as that tackles that separate group of emails in this same lightweight fashion (use official WordPress filters to simply disable the email[s] as described.) These two plugins can work together to remove all these notifications (hence why this doesn't also remove core update notifications). Meanwhile, one can use one or the other if a specific set of emails is desired to be blocked (ex. I personally like the core update notifications since they're not too frequent while potentially being substantial so I keep those enabled while I then just use this plugin to disable the more frequent & typically less impactful plugin and theme update notifications.)
 
+== Screenshots ==
+
+1. The Settings => General setting for also disabling failed update email notifications (successful updates are disabled simply by having the plugin active on the site.)
+
 == Changelog ==
 
 = 2.0 =
