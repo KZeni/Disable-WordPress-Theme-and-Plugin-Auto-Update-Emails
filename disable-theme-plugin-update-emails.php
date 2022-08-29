@@ -78,7 +78,7 @@ function kzeni_disable_theme_plugin_update_emails_field_callback($args)
 	echo checked($option, 'true');
 	echo ' /> ';
 	echo __('Yes, disable all.', 'kzeni_disable_theme_plugin_update_emails') . '</label>';
-	echo '<p class="description">' . __('Successful updates already won\'t send emails simply due to the <strong>Disable Theme and Plugin Auto-Update Emails</strong> plugin being enabled.', 'kzeni_disable_theme_plugin_update_emails') . '</p>';
+	echo '<p class="description">' . __('Successful theme & plugin updates won\'t send emails simply due to the <strong>Disable Theme and Plugin Auto-Update Emails</strong> plugin being enabled. Deactivate this plugin if you wish to have successful theme & plugin update emails resume sending.', 'kzeni_disable_theme_plugin_update_emails') . '</p>';
 }
 
 function kzeni_disable_theme_plugin_update_emails_plugin_extra_links($links, $plugin_name)
