@@ -38,7 +38,7 @@ Try out [Disable WordPress Core Update Email](https://wordpress.org/plugins/disa
 
 = 2.0 =
 
-Released August 24th, 2022
+Released August 29th, 2022
 
 * Made the default setup allow failed updates to still send email notifications.
 * Added "Also disable failed update email notifications" setting to Settings => General to allow failed updates to be disabled as well.
