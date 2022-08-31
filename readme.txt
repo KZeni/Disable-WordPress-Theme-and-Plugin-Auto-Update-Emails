@@ -3,7 +3,7 @@ Contributors: KZeni
 Donate link: https://www.paypal.me/KZeni
 License: GPLv3
 Tags: plugin update, theme update, notifications, email, updates, disable
-Stable tag: 2.0
+Stable tag: 2.0.1
 Requires at least: 5.5
 Tested up to: 6.0.2
 Requires PHP: 5.4
@@ -24,11 +24,11 @@ Check things out on GitHub at [https://github.com/KZeni/Disable-WordPress-Theme-
 
 You can simply enable this to disable these notifications. Deactivating the plugin then has it resume default behavior. A simple implementation that's quick & easy to utilize. Consider enabling/disabling the plugin the setting for whether or not these email notifications are disabled or not.
 
-Also, this does let notifications about failed updates to be delivered by default as they can be important. There is a "Also disable failed update email notifications" setting on Settings => General to disable update failure notifications as well, if/when there's a need for it.
+Also, this does let notifications about failed updates to be delivered by default as they can be important. There is a "Disable failed update email notifications" setting on Settings => General to disable update failure notifications as well, if/when there's a need for it.
 
 = What about update failure notifications? =
 
-By default, notifications about failed updates will still be delivered, but there is a "Also disable failed update email notifications" setting on Settings => General to disable update failure notifications as well, if/when there's a need for it.
+By default, notifications about failed updates will still be delivered, but there is a "Disable failed update email notifications" setting on Settings => General to disable update failure notifications as well, if/when there's a need for it.
 
 = Looking for WordPress core version update email notifications instead/as well? =
 
@@ -40,12 +40,19 @@ Try out [Disable WordPress Core Update Email](https://wordpress.org/plugins/disa
 
 == Changelog ==
 
+= 2.0.1 =
+
+Released August 31st, 2022
+
+* Fixed potential PHP error where `auto_theme_update_send_email` and/or `auto_plugin_update_send_email` might not have the second attribute supplied.
+* Updated settings to help illustrate how the successful update notifications are always blocked per the plugin simply being active on the site while failed update notifications can be blocked as well via that setting.
+
 = 2.0 =
 
 Released August 29th, 2022
 
 * Made the default setup allow failed updates to still send email notifications.
-* Added "Also disable failed update email notifications" setting to Settings => General to allow failed updates to be disabled as well.
+* Added "Disable failed update email notifications" setting to Settings => General to allow failed updates to be disabled as well.
 * Added Settings, GitHub, and Support links to the plugin details on the plugins page in the site admin.
 
 = 1.0.6 =

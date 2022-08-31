@@ -6,7 +6,7 @@
  * Author: KZeni
  * Author URI: https://kzeni.com
  * License: GPLv3
- * Version: 2.0
+ * Version: 2.0.1
  * Requires at least: 5.5
  * Tested up to: 6.0.2
  */
@@ -27,7 +27,7 @@ add_filter('auto_theme_update_send_email', 'kzeni_plugin_theme_update_email_on_f
  * @param array $update_results An array of update results.
  * @return bool
  */
-function kzeni_plugin_theme_update_email_on_failure($enabled, $update_results)
+function kzeni_plugin_theme_update_email_on_failure($enabled, $update_results = array())
 {
 	if (get_option('kzeni_disable_theme_plugin_update_emails_disable_all') === true || get_option('kzeni_disable_theme_plugin_update_emails_disable_all') === 'true') { // If disable failures as well (disable all) is enabled (not the default so just seeing if it's set to true or not is enough to check)
 		return false;
@@ -53,8 +53,19 @@ function kzeni_disable_theme_plugin_update_emails_general_settings_section()
 	);
 
 	add_settings_field( // Option 1
+		'kzeni_disable_theme_plugin_update_emails_explanation', // Option ID
+		__('Disable successful update email notifications', 'kzeni_disable_theme_plugin_update_emails'), // Label
+		'kzeni_disable_theme_plugin_update_emails_field_callback', // !important - This is where the args go!
+		'general', // Page it will be displayed (General Settings)
+		'kzeni_disable_theme_plugin_update_emails_settings_section', // Name of our section
+		array( // The $args
+			'kzeni_disable_theme_plugin_update_emails_explanation' // Should match Option ID
+		)
+	);
+
+	add_settings_field( // Option 2
 		'kzeni_disable_theme_plugin_update_emails_disable_all', // Option ID
-		__('Also disable failed update email notifications', 'kzeni_disable_theme_plugin_update_emails'), // Label
+		__('Disable failed update email notifications', 'kzeni_disable_theme_plugin_update_emails'), // Label
 		'kzeni_disable_theme_plugin_update_emails_field_callback', // !important - This is where the args go!
 		'general', // Page it will be displayed (General Settings)
 		'kzeni_disable_theme_plugin_update_emails_settings_section', // Name of our section
@@ -72,13 +83,20 @@ function kzeni_disable_theme_plugin_update_emails_options_callback()
 }
 
 function kzeni_disable_theme_plugin_update_emails_field_callback($args)
-{  // Textbox Callback
-	$option = get_option($args[0]);
-	echo '<label><input type="checkbox" id="' . $args[0] . '" name="' . $args[0] . '" value="true" ';
-	echo checked($option, 'true');
-	echo ' /> ';
-	echo __('Yes, disable all.', 'kzeni_disable_theme_plugin_update_emails') . '</label>';
-	echo '<p class="description">' . __('Successful theme & plugin updates won\'t send emails simply due to the <strong>Disable Theme and Plugin Auto-Update Emails</strong> plugin being enabled. Deactivate this plugin if you wish to have successful theme & plugin update emails resume sending.', 'kzeni_disable_theme_plugin_update_emails') . '</p>';
+{  // Settings Field(s) Callback
+	if ($args[0] === 'kzeni_disable_theme_plugin_update_emails_explanation') {
+		echo '<label><input type="checkbox" id="' . $args[0] . '" name="' . $args[0] . '" value="true" checked="checked" disabled="disabled" />';
+		echo __('Yes, disable <strong><em>successful update</em></strong> email notifications for themes & plugins.', 'kzeni_disable_theme_plugin_update_emails') . '</label>';
+		echo '<p class="description">' . __('Successful theme & plugin updates won\'t send email notifications simply due to the <strong>Disable Theme and Plugin Auto-Update Emails</strong> plugin being active on this site. Deactivate this plugin if you want to have successful theme & plugin update emails resume sending.', 'kzeni_disable_theme_plugin_update_emails') . '</p>';
+	}
+	if ($args[0] === 'kzeni_disable_theme_plugin_update_emails_disable_all') {
+		$option = get_option($args[0]);
+		echo '<label><input type="checkbox" id="' . $args[0] . '" name="' . $args[0] . '" value="true" ';
+		echo checked($option, 'true');
+		echo ' /> ';
+		echo __('Yes, also disable <strong><em>failed update</em></strong> email notifications for themes & plugins.', 'kzeni_disable_theme_plugin_update_emails') . '</label>';
+		echo '<p class="description">' . __('A theme and/or plugin may fail (or otherwise encounter an issue) when attempting an update, and it\'s typically more important to receieve email notifications for these compared to successful update email notifications. As such, the default is to allow these through while one can choose to disable these as well.', 'kzeni_disable_theme_plugin_update_emails') . '</p>';
+	}
 }
 
 function kzeni_disable_theme_plugin_update_emails_plugin_extra_links($links, $plugin_name)
