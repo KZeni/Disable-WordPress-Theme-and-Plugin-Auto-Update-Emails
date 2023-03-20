@@ -6,9 +6,9 @@
  * Author: KZeni
  * Author URI: https://kzeni.com
  * License: GPLv3
- * Version: 2.0.2
+ * Version: 2.0.3
  * Requires at least: 5.5
- * Tested up to: 6.1
+ * Tested up to: 6.2
  */
 
 define('KZENI_DISABLE_THEME_PLUGIN_UPDATE_EMAILS_NAME', plugin_basename(__FILE__));
