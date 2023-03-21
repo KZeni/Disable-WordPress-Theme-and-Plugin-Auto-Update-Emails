@@ -9,6 +9,7 @@
  * Version: 2.0.3
  * Requires at least: 5.5
  * Tested up to: 6.2
+ * Requires PHP: 5.4
  */
 
 define('KZENI_DISABLE_THEME_PLUGIN_UPDATE_EMAILS_NAME', plugin_basename(__FILE__));
